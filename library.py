@@ -49,6 +49,20 @@ def addBook():
             print("Invalid Input")
 
 
+def viewBooks(): # Views each expense (reciept)
+
+    print("Books in stock:")   
+
+    for book in books: #Iterates and loops through expenses for expense lists
+
+        print("")
+
+        print("Book Title: ",book[0])
+        print("Author: ",book[1])
+
+        print("")
+
+
 while True: # Continues after user completes an option
 
 
@@ -58,3 +72,6 @@ while True: # Continues after user completes an option
     if userOption == 1:
 
         addBook()
+
+    elif userOption == 4:
+        viewBooks()
