@@ -1,5 +1,9 @@
 
-books = []
+books = [
+    ['IT', 'Stephen King']
+]
+
+borrowBooks = []
 
 def menu():
     print("Welcome to the Library")
@@ -22,6 +26,11 @@ def menu():
 
     except ValueError:
         print("Enter numbers 1-5")
+
+
+
+
+
 
 
 def addBook(): 
@@ -49,6 +58,97 @@ def addBook():
             print("Invalid Input")
 
 
+
+
+
+
+
+def borrowBook():
+
+
+        print("tell me what fucking book yhou wanan F UCKING read fucking wanker")
+
+        print("")
+
+        try:
+
+                userChoice = input("Enter Book: ")
+        
+                for book in books:
+
+                    if userChoice in book:
+                        
+                        borrowBooks.append(book)
+
+                        books.remove(book)
+
+                        print(borrowBooks)
+
+                        break
+                        
+
+        except ValueError:
+            print("Book not in stock")
+
+
+
+
+
+
+
+def returnBook():
+
+
+        print("Enter Book you would like to return")
+
+        print("")
+
+        try:
+
+                userChoice = input("Enter Book: ")
+                print(borrowBooks)
+        
+                for book in borrowBooks:
+
+                    if userChoice not in book:
+                        
+                        books.append(book)
+
+                        borrowBooks.remove(book)
+
+                        print(borrowBooks)
+
+                        break
+                        
+
+        except ValueError:
+            print("Book not in stock")
+
+
+
+
+
+
+
+
+
+def viewBooks(): # Views each book and author (reciept)
+
+    print("Books in stock:")   
+
+    for book in books: #Iterates and loops through boos for book lists
+
+        print("")
+
+        print("Book Title: ",book[0])
+        print("Author: ",book[1])
+
+        print("")
+
+
+
+
+
 while True: # Continues after user completes an option
 
 
@@ -56,5 +156,18 @@ while True: # Continues after user completes an option
 
 
     if userOption == 1:
-
         addBook()
+
+    elif userOption == 2:
+        borrowBook()
+
+    elif userOption == 3:
+        returnBook()
+
+    elif userOption == 4:
+        viewBooks()
+
+
+    elif userOption == 6:
+        print("Goodbye")
+        break
